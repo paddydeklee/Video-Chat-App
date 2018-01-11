@@ -28,6 +28,10 @@ app.get("/", (request, response) => {
 	response.end("Hello world");
 });
 
+app.get("/home", (request, response) => {
+	response.render("index", {title: "TITLE"});
+});
+
 // 1 listen on server - check server is listening
 const server = new http.Server(app);
 
