@@ -1,8 +1,8 @@
-"use srtict";
+"use strict";
 
 // 1 require packages
 var http = require("http"),
-	express = require("express");
+	express = require("express"),
 	socketIo = require("socket.io");
 
 // 1 create 
@@ -36,6 +36,10 @@ app.get("/home", (request, response) => {
 // 1 listen on server - check server is listening
 const server = new http.Server(app);
 const io = socketIo(server);
+
+io.on("connection", socket => {
+	console.log("Client connected!")
+})
 
 const port = 3000;
 server.listen(port, () => {
