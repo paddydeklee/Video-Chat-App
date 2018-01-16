@@ -9,20 +9,7 @@ var http = require("http"),
 const app = express();
 app.set("view engine", "jade");
 
-// 2 middleware pipeline
-app.use((request, response, next) =>{
-	console.log("In middleware 1");
-	next();
-	console.log("out of middleware 1");
-});
-
 app.use(express.static("./public"));
-
-app.use((request, response, next) => {
-	console.log("---- In middleware 2");
-	next();
-	console.log("---- out of middleware 2");
-});
 
 // 2 end response
 app.get("/", (request, response) => {
