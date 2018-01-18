@@ -9,6 +9,9 @@
     "parserOptions": {
         "sourceType": "module"
     },
+    "ecmaFeatures": {
+        
+    },
     "rules": {
         "indent": [
             "error",
@@ -18,13 +21,10 @@
             "error",
             "unix"
         ],
-        "quotes": [
-            "error",
-            "double"
-        ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console":0
     }
 }
