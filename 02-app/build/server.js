@@ -70,9 +70,11 @@
 "use strict";
 
 
-var _test = __webpack_require__(1);
+__webpack_require__(1);
 
-var _lodash = __webpack_require__(2);
+var _test = __webpack_require__(2);
+
+var _lodash = __webpack_require__(3);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -83,9 +85,16 @@ var arr = [1, 2, 3, 4];
 console.log(_lodash2.default.filter(arr, function (a) {
   return a < 5;
 }));
+console.log("from server");
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("source-map-support/register");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -100,7 +109,7 @@ function blegh() {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");

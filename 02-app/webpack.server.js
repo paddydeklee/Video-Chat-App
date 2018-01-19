@@ -1,7 +1,20 @@
 var path = require("path");
 var nodeExternals = require('webpack-node-externals');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var webpack = require("webpack");
 
 function createConfig(isDebug){
+	const plugins = [];
+
+	if(!isDebug){
+		plugins.push(new webpack.optimize.UglifyJsPlugin()); 
+	}
+
+	if(isDebug === "BundleAnalyzer"){
+		plugins.push(new BundleAnalyzerPlugin());
+	}
+
+
 	// ------------
 	// WEBPACK CONFIG
 	return {
@@ -23,8 +36,9 @@ function createConfig(isDebug){
 				{test: /\.js$/, use: "eslint-loader", exclude: /node_modules/}
 			]
 		},
-		externals: [nodeExternals()]
+		externals:[nodeExternals()],
+		plugins: plugins
 	};
 }
 
-module.exports = createConfig(true);
+module.exports = createConfig("BundleAnalyzer");
