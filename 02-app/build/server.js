@@ -72,7 +72,17 @@
 
 var _test = __webpack_require__(1);
 
+var _lodash = __webpack_require__(2);
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 (0, _test.blegh)();
+var arr = [1, 2, 3, 4];
+console.log(_lodash2.default.filter(arr, function (a) {
+  return a < 5;
+}));
 
 /***/ }),
 /* 1 */
@@ -88,6 +98,12 @@ exports.blegh = blegh;
 function blegh() {
 	console.log("it worked");
 }
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash");
 
 /***/ })
 /******/ ]);

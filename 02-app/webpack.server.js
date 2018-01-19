@@ -1,4 +1,5 @@
 var path = require("path");
+var nodeExternals = require('webpack-node-externals');
 
 function createConfig(isDebug){
 	// ------------
@@ -21,7 +22,8 @@ function createConfig(isDebug){
 				{test: /\.js$/, use: "babel-loader", exclude: /node_modules/},
 				{test: /\.js$/, use: "eslint-loader", exclude: /node_modules/}
 			]
-		}
+		},
+		externals: [nodeExternals()]
 	};
 }
 
